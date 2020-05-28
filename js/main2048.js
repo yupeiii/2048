@@ -2,6 +2,7 @@ var board = new Array();
 var score = 0;
 var hasConflicted = new Array();
 var winOnce = false;
+var start = true;
 $(document).ready(function(){
     //加载调用的方法
     prepareForMobile();
@@ -226,42 +227,58 @@ document.addEventListener('touchend',function(event){
     }
 });
 
-if (window.DeviceOrientationEvent) {
 window.addEventListener('deviceorientation',function(event){
     gamma = event.gamma;
     beta = event.beta;
-
-    if(gamma > 35 {
-        //向右
-            if(moveRight()){
-                    setTimeout("generateOneNumber()",210);
-                    setTimeout("isGameover()",300);
-                    setTimeout("isWin()",300);
-                }
-    }else if(gamma < -35){
-        //向左
-            if(moveLeft()){
-                    setTimeout("generateOneNumber()",210);
-                    setTimeout("isGameover()",300);
-                    setTimeout("isWin()",300);
-                }
-    }else if(beta > 60){
-		//向下
-            if(moveDown()){
-                    setTimeout("generateOneNumber()",210);
-                    setTimeout("isGameover()",300);
-                    setTimeout("isWin()",300);
-                }
-	}else if(beta < -20){
-		//向上
-            if(moveUp()){
-                    setTimeout("generateOneNumber()",210);
-                    setTimeout("isGameover()",300);
-                    setTimeout("isWin()",300);
-                }
+	
+	//gamma
+	right = 30
+	left = -20
+	//beta
+	down = 60
+	up = -10
+	
+    if(start){
+		if(gamma > right){
+			//向右
+				if(moveRight()){
+						setTimeout("generateOneNumber()",210);
+						setTimeout("isGameover()",300);
+						setTimeout("isWin()",300);
+						start = false;
+					}
+		}else if(gamma < left){
+			//向左
+				if(moveLeft()){
+						setTimeout("generateOneNumber()",210);
+						setTimeout("isGameover()",300);
+						setTimeout("isWin()",300);
+						start = false;
+					}
+		}else if(beta > down){
+			//向下
+				if(moveDown()){
+						setTimeout("generateOneNumber()",210);
+						setTimeout("isGameover()",300);
+						setTimeout("isWin()",300);
+						start = false;
+					}
+		}else if(beta < up){
+			//向上
+				if(moveUp()){
+						setTimeout("generateOneNumber()",210);
+						setTimeout("isGameover()",300);
+						setTimeout("isWin()",300);
+						start = false;
+					}
+		}
+	}
+	else{
+		if(gamma<right&&gamma>left&&beta<down&&beta>up){
+			start = true;
+		}
 	}
 });
-}
 
 
 function isGameover(){

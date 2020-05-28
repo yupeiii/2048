@@ -230,7 +230,7 @@ if (document.DeviceOrientationEvent) {
 document.addEventListener('deviceorientation',function(event){
     gamma = event.gamma;
     beta = event.beta;
-    
+
     if(gamma > 30) {
         //向右
             if(moveRight()){

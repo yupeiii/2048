@@ -231,14 +231,14 @@ window.addEventListener('deviceorientation',function(event){
     gamma = event.gamma;
     beta = event.beta;
 
-    if(gamma > 40) {
+    if(gamma > 35 {
         //向右
             if(moveRight()){
                     setTimeout("generateOneNumber()",210);
                     setTimeout("isGameover()",300);
                     setTimeout("isWin()",300);
                 }
-    }else if(gamma < -40){
+    }else if(gamma < -35){
         //向左
             if(moveLeft()){
                     setTimeout("generateOneNumber()",210);
@@ -252,7 +252,7 @@ window.addEventListener('deviceorientation',function(event){
                     setTimeout("isGameover()",300);
                     setTimeout("isWin()",300);
                 }
-	}else if(beta < -10){
+	}else if(beta < -20){
 		//向上
             if(moveUp()){
                     setTimeout("generateOneNumber()",210);

@@ -231,14 +231,14 @@ document.addEventListener('deviceorientation',function(event){
     gamma = event.gamma;
     beta = event.beta;
     
-    if(gamma > 40) {
+    if(gamma > 30) {
         //向右
             if(moveRight()){
                     setTimeout("generateOneNumber()",210);
                     setTimeout("isGameover()",300);
                     setTimeout("isWin()",300);
                 }
-    }else if(gamma < -40){
+    }else if(gamma < -20){
         //向左
             if(moveLeft()){
                     setTimeout("generateOneNumber()",210);

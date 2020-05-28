@@ -227,7 +227,7 @@ document.addEventListener('touchend',function(event){
 });
 
 if (window.DeviceOrientationEvent) {
-document.addEventListener('deviceorientation',function(event){
+window.addEventListener('deviceorientation',function(event){
     gamma = event.gamma;
     beta = event.beta;
     
